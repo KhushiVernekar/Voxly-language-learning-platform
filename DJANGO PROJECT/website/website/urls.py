@@ -18,12 +18,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from signup.views import signaction
-from login.views import loginaction
+from login.views import loginaction,signout
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/', signaction, name='signup'),
     path('login/', loginaction, name='login'),
+    path('signout', signout, name='signout')
     # other URL patterns...
 ]
 

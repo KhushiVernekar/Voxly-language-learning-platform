@@ -27,23 +27,53 @@
 
 
 # views.py
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+# from django.shortcuts import render, redirect
+# from django.contrib.auth import authenticate, login
+
+# def loginaction(request):
+#     if request.method == "POST":
+#         email = request.POST.get("email")
+#         password = request.POST.get("password")
+#         print(email, password)
+#         # Use Django's authenticate function to check user credentials
+#         user = authenticate(request, Email=email, assword=password)
+#         print(user)
+
+#         if user is not None:
+#             # Log in the user
+#             login(request, user)
+#             return render(request, "welcome.html")
+#         else:
+#             return render(request, 'error.html')
+
+#     return render(request, "login_page.html")
+
+
+
+from django.shortcuts import redirect, render
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login, logout
+from django.contrib import messages
 
 def loginaction(request):
     if request.method == "POST":
-        email = request.POST.get("email")
-        password = request.POST.get("password")
-        print(email, password)
-        # Use Django's authenticate function to check user credentials
-        user = authenticate(request, Email=email, assword=password)
+        username = request.POST['username']
+        password = request.POST['password']
+        print(username, password)
+        user = authenticate(username=username, password=password)
         print(user)
-
         if user is not None:
-            # Log in the user
             login(request, user)
+            # fname = user.first_name
             return render(request, "welcome.html")
+
         else:
             return render(request, 'error.html')
-
     return render(request, "login_page.html")
+
+
+def signout(request):
+    logout(request)
+    messages.success(request, "Logged out succeffully")
+    return redirect("signup")

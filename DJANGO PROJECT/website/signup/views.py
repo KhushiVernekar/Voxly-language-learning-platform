@@ -34,30 +34,53 @@
 # views.py
 
 # signup/views.py
-from django.shortcuts import render, redirect
-from .models import User
+# from django.shortcuts import render, redirect
+# from .models import User
+
+# def signaction(request):
+#     if request.method == "POST":
+#         # Retrieve form data
+#         first_name = request.POST.get("first_name")
+#         last_name = request.POST.get("last_name")
+#         gender = request.POST.get("gender")
+#         email = request.POST.get("email")
+#         password = request.POST.get("password")
+
+#         # Create and save a new user
+#         user = User(
+#             first_name=first_name,
+#             last_name=last_name,
+#             gender=gender,
+#             email=email,
+#             password=password,
+#         )
+#         user.save()
+
+#         # Redirect to the 'signup_page' URL
+#         return redirect("signup")
+
+#     return render(request, "signup_page.html")
+
+
+from django.shortcuts import redirect, render
+from django.http import HttpResponse
+from django.contrib.auth.models import User
 
 def signaction(request):
     if request.method == "POST":
-        # Retrieve form data
-        first_name = request.POST.get("first_name")
-        last_name = request.POST.get("last_name")
-        gender = request.POST.get("gender")
-        email = request.POST.get("email")
-        password = request.POST.get("password")
+        username = request.POST['username']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        gender = request.POST['gender']
+        email = request.POST['email']
+        password = request.POST['password']
 
-        # Create and save a new user
-        user = User(
-            first_name=first_name,
-            last_name=last_name,
-            gender=gender,
-            email=email,
-            password=password,
-        )
-        user.save()
+        myuser = User.objects.create_user(username, email, password)
+        myuser.firstname = first_name
+        myuser.lastname = last_name
 
-        # Redirect to the 'signup_page' URL
-        return redirect("signup")
+        myuser.save()
 
-    return render(request, "signup_page.html")
+        return redirect('login')
 
+    return render(request, 'signup_page.html')
