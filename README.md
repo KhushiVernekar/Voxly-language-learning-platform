@@ -11,12 +11,12 @@ Voxly is a english learning language designed by HKL HARMONY using Html,CSS,Java
 - You project will be accessible in your localhost or local network.
 
 <b>Backend</b>
-[MySQL](https://www.mysql.com/)
+[MySQL](https://www.mysql.com/)</br>
 [Python Django Framework](https://docs.djangoproject.com/en/3.1/)
 
 <b>Frontend</b>
-[HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML)
-[CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML)</br>
+[CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)</br>
 [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 
