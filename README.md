@@ -1,6 +1,6 @@
 # 📚 Voxly – English Learning Platform
 
-**Voxly** is an English language learning platform designed by **HKL HARMONY** using modern web technologies including Django and MySQL. It empowers learners with an interactive interface and a structured backend for managing lessons and progress.
+**Voxly** is an English language learning platform designed using modern web technologies including Django and MySQL. It empowers learners with an interactive interface and a structured backend for managing lessons and progress.
 
 ---
 
